@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Teste</title>
 </head>
 <body>
@@ -11,26 +13,3 @@
     <div id="listaUsuarios"></div>
 </body>
 </html>
-
-<script>
-    function listar() {
-        fetch("/usuarios/listar", {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            },
-        }).then(function(resposta) {
-            resposta.json().then(json => {
-                console.log(json);
-                for (i = 0; i < json.length; i++) {
-                listaUsuarios.innerHTML += `${json[i].nomeUsuario}<br>`;
-        }
-            });
-            
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-        return false;
-        
-    }
-</script>
